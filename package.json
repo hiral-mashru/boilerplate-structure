@@ -24,14 +24,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "framework": "node js.js"
+    "dev": "nodemon src/app.js"
   },
-  "author": "",
+  "author": "Hiral Mashru",
   "license": "ISC",
   "bin": {
-    "framework": "./js.js",
-    "folder": "./bin/global.js"
+    "framework": "cli.js"
   },
   "preferGlobal": true
 }
