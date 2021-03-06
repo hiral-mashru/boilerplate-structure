@@ -81,7 +81,7 @@ function looping(apii,rr,routes, publicRoutes, protectedRoutes){
                 }
                 rr.middleware = middlewareFun
                 // console.log(rr.middleware)
-            } else { rr.middleware = [function(){}] }
+            } else { rr.middleware = [] }
 
             //global middleware
             if('globalMiddleware' in rr && Array.isArray(rr.globalMiddleware)){
@@ -110,7 +110,7 @@ function looping(apii,rr,routes, publicRoutes, protectedRoutes){
                     // console.log("x",rr.globalMiddleware)
                 }
                 rr.globalMiddleware = globalMiddlewareFun
-            }  else { rr.globalMiddleware = [function(){}] }
+            }  else { rr.globalMiddleware = [] }
 
 
             if(rr.public){
