@@ -26,7 +26,7 @@ sequelize.authenticate().then(() => {
     throw `Unable to connect to the database: ${err}`
 });
 
-framework = {connection : sequelize};
+// framework = {connection : sequelize};
   
 sequelize.sync();
 

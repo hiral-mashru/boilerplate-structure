@@ -1,8 +1,10 @@
+global.setup = {}
 const bodyParser = require('body-parser')
 require('dotenv').config()
-global.framework={};
+// global.framework={};
 require('../core/migrations');
-
+require('../core/functions')
+require('../core/services')
 const routes = require('../core/routes');
 const app = require('../core/migrations');
 app.use(bodyParser.json())
