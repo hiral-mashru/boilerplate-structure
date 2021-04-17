@@ -236,9 +236,9 @@ This folder holds multiple files for service.
 
 •	**src**
 
-    * app.js
+o	app.js
 
-    This is the root file where the process starts. It imports all the required files and route calling starts from here. It includes error handler also which handles all the errors so that app doesn’t get crashed. It has swagger configuration also for api documentation.
+-> This is the root file where the process starts. It imports all the required files and route calling starts from here. It includes error handler also which handles all the errors so that app doesn’t get crashed. It has swagger configuration also for api documentation.
 
 •	**uploads** 
 
