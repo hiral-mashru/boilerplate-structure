@@ -27,39 +27,39 @@ Documentation of project : GOTO https://github.com/hiral-mashru/setup/blob/main/
 
 #	CLI commands
 
-•	`framework init`
+*	`framework init`
 
 =>	It installs the whole folder structure with required configuration files in your system. It asks for database configuration whether developer wants to do or not. If yes then it asks for development or production field and according to that, it asks for database connection information like username, password, database name, etc… and generates database.json file in config folder. 
 
-•	`framework create-module <MODULE_NAME>`
+*	`framework create-module <MODULE_NAME>`
 
 =>	It creates the module in api folder which consists of controllers, middlewares and service folders and each folder has a sample file with dummy data and also routes.json file.
 
-•	`framework create-api`
+*	`framework create-api`
 
 =>	It creates the api. It asks for module name, in which developer wants to create an api and then it asks for path information like endpoint, HTTP method, controller file name and function name (separated by ‘.’), middleware file name and function name (separated by ‘.’ and middlewares separated by ‘,’), public or private endpoint, call from root or not, etc… It automatically creates routes.json file with given api’s data and also creates controller file and function, middleware and global middleware files and functions in given module’s folder which are specified by developer. If file already exists, then it appends the data.
 
-•	`framework create-middleware`
+*	`framework create-middleware`
 
 =>	It creates middlewares. It asks for module name, in which developer wants to create a middleware and api name, in which this middleware will be used. Then it asks for middleware file name and function name (separated by ‘.’ and middlewares separated by ‘,’) and it creates files and functions in middlewares folder of given module’s folder, if file already exists, then it appends the data. It also adds the middlewares information provided by developer to routes.json.
 
-•	`framework create-globalMiddleware`
+*	`framework create-globalMiddleware`
 
 =>	It creates global middlewares. It asks for module name, in which developer wants to create a global middleware and api name, in which this global middleware will be used. Then it asks for global middleware file name and function name (separated by ‘.’ and middlewares separated by ‘,’) and it creates files and functions in middlewares folder, if file already exists, then it appends the data. It also adds the global middlewares information provided by developer to routes.json.
 
-•	`framework create-function`
+*	`framework create-function`
 
 =>  It asks for module level functions and global level functions. In module level function, it provides available modules and asks for creating new module to create function in that module. In global level function, it will create functions folder in root and will create the file. Then it will ask for function’s file name and function name in filename.functionName format.
 
-•	`framework create-service`
+*	`framework create-service`
 
 =>   It asks for module level services and global level services. In module level service, it provides available modules and asks for creating new module to create service in that module. In global level service, it will create services folder in root and will create the file. Then it will ask for service’s file name and function name in filename.functionName format.
  
-•	`framework db-config`
+*	`framework db-config`
 
 =>	It asks for database configuration whether developer wants to do or not. If yes then it asks for development or production field and according to that, it asks for database connection information like username, password, database name, etc… and generates database.json file in config folder.
 
-•	`framework help`
+*	`framework help`
 
 =>	It shows the list of commands and its use.
 
@@ -81,7 +81,7 @@ Documentation of project : GOTO https://github.com/hiral-mashru/setup/blob/main/
 
 Take a look on functionality of each file and folder.
 
-•	**api**
+* ## **api**
 
 api folder will have modules that will be created by developers, and in those modules, there will be controllers, middlewares and services folders and routes.json file.
 
@@ -141,7 +141,7 @@ api folder will have modules that will be created by developers, and in those mo
         root: true | false
   }]
   ```
-•	**config**
+* ##	**config**
 
   * config.js
 
@@ -159,7 +159,7 @@ api folder will have modules that will be created by developers, and in those mo
 
   This file has configuration for uploading any files to given location. This file uses ‘multer’ package. Developer just needs to write `setup.store({LocationPath})` to store files and  `setup.uploadFile` which is an object to define files.
 
-•	**core**
+*	**core**
 
   * connection.js
 
@@ -194,7 +194,7 @@ api folder will have modules that will be created by developers, and in those mo
 
   This file handles the configurations of services of root folder. Developer can access the service files in api via `setup.services[‘fileName’][‘serviceName’]` 
 
-•	**crons**
+*	**crons**
 
 This folder can have multiple cron files created by developer. Crons will be in object (key-value pair) format. 
 
@@ -205,7 +205,7 @@ module.exports = {
 }
 ```
 
-•	**db**
+*	**db**
 
   * migrations
 
@@ -219,96 +219,96 @@ module.exports = {
 
   This folder includes seeder files.
 
-•	**dbLogs** 
+*	**dbLogs** 
 
 This folder includes database log files.
 
-•	**functions** 
+*	**functions** 
 
 This folder holds multiple folders and multiple files.
 
-•	**middlewares**
+*	**middlewares**
 
 It holds middleware files which are common for many apis or modules. These middlewares are global middlewares.
 
-•	**services**
+*	**services**
 
 This folder holds multiple files for service.
 
-•	**src**
+*	**src**
 
   * app.js
 
   This is the root file where the process starts. It imports all the required files and route calling starts from here. It includes error handler also which handles all the errors so that app doesn’t get crashed. It has swagger configuration also for api documentation.
 
-•	**uploads** 
+*	**uploads** 
 
 This folder includes files uploaded by end user if developer has not set path for files storage.
 
-•	**.env**
+*	**.env**
 
 This file includes port number defined by developer.
 
-•	**.sequelizerc**
+*	**.sequelizerc**
 
 This file defines the path of database folders and file like migrations, seeders, models and database.json.
 
 #	Where global object is used
 
-•	`setup.functions[‘folderName’][‘fileName’][‘functionName’](params1,params2,…,paramsN)` 
+*	`setup.functions[‘folderName’][‘fileName’][‘functionName’](params1,params2,…,paramsN)` 
 =>	 For importing the function from given path of functions folder of given module.
 
-•	`setup.moduleFunctions[‘folderName’][‘fileName’][‘functionName’] (params1,params2,…,paramsN)` 
+*	`setup.moduleFunctions[‘folderName’][‘fileName’][‘functionName’] (params1,params2,…,paramsN)` 
 
 =>	 For importing the function from given path of functions folder of root folder.
 
-•	`setup.services[‘fileName’][‘functionName’]`
+*	`setup.services[‘fileName’][‘functionName’]`
 
 =>	For importing the services from services folder of given root folder.
 
-•	`setup.moduleServices[‘fileName’][‘functionName’]`
+*	`setup.moduleServices[‘fileName’][‘functionName’]`
 
 =>	For importing the services from services folder of given module’s folder
 
-•	`setup.crons['fileName']['functionName']`
+*	`setup.crons['fileName']['functionName']`
 
 =>	For importing vrons from crons folder.
 
-•	`setup.findErr(<error>)`
+*	`setup.findErr(<error>)`
 
 =>	It returns the reasons of errors in easy reading format. 
 
-•	`setup.store(<path>)`
+*	`setup.store(<path>)`
 
 =>	It sets the path of uploading files.
 
-•	`setup.uploadFile`
+*	`setup.uploadFile`
 
 =>	It defines the files which are going to upload.
 
 #	How to use this setup?
 
-•	As a beginner, first generate folder structure using `framework init` command. It installs all the required packages and generates the folder structure.
+*	As a beginner, first generate folder structure using `framework init` command. It installs all the required packages and generates the folder structure.
 
-•	To create the modules, use `framework create-module`, it will generate the module folder in api which consists of cntrollers, middlewares, services folders along with files in it with dummy data, so that developer can get idea how to write apis or middlewares in those files and it also generates routes.json file.
+*	To create the modules, use `framework create-module`, it will generate the module folder in api which consists of cntrollers, middlewares, services folders along with files in it with dummy data, so that developer can get idea how to write apis or middlewares in those files and it also generates routes.json file.
 
-•	To create api, use `framework create-api`, it will ask all the information regarding to api such as endpoint, HTTP method, controller file and function, middleware files and functions, etc… and will create the files and functions also.
+*	To create api, use `framework create-api`, it will ask all the information regarding to api such as endpoint, HTTP method, controller file and function, middleware files and functions, etc… and will create the files and functions also.
 
-•	To create middleware in particular api, use `framework create-middleware`, it will create middleware files and functions in given module and also adds the information in routes.json file.
+*	To create middleware in particular api, use `framework create-middleware`, it will create middleware files and functions in given module and also adds the information in routes.json file.
 
-•	To create global middleware in particular api, use `framework create-globalMiddleware`, it will create global middleware files and functions and also adds the information in routes.json file.
+*	To create global middleware in particular api, use `framework create-globalMiddleware`, it will create global middleware files and functions and also adds the information in routes.json file.
 
-•	To create global services, use `setup.services[‘fileName’][‘functionName’]`, to import service function from services folder of root folder to api.
+*	To create global services, use `setup.services[‘fileName’][‘functionName’]`, to import service function from services folder of root folder to api.
 
-•	To create module level services, use `setup.moduleServices[‘fileName’][‘functionName’]`, to import service function from services folder of module folder to api.
+*	To create module level services, use `setup.moduleServices[‘fileName’][‘functionName’]`, to import service function from services folder of module folder to api.
 
-•	To create global functions, use `setup.functions[’folderName’][‘fileName’][‘functionName’](params)`, to import functions from functions folder of root folder to api.
+*	To create global functions, use `setup.functions[’folderName’][‘fileName’][‘functionName’](params)`, to import functions from functions folder of root folder to api.
 
-•	To create module level functions, use `setup.moduleFunctions[’folderName’][‘fileName’][‘functionName’](params)`, to import functions from functions of module folder to api.
+*	To create module level functions, use `setup.moduleFunctions[’folderName’][‘fileName’][‘functionName’](params)`, to import functions from functions of module folder to api.
 
-•	To create crons use `setup.crons['fileName']['functionName']`, to import cron function from crons folder to api and you can start or stop that cron.
+*	To create crons use `setup.crons['fileName']['functionName']`, to import cron function from crons folder to api and you can start or stop that cron.
 
-•	To handle the api errors, in catch block, you can define ‘new Error()’ to a variable and can pass `setup.findErr(error)` to show the reasons of errors. 
+*	To handle the api errors, in catch block, you can define ‘new Error()’ to a variable and can pass `setup.findErr(error)` to show the reasons of errors. 
 
 Ex. 
 ```
@@ -316,20 +316,20 @@ const err = new Error(err.name+' '+setup.findErr(error));
 err.status = 500; next(err);
 ```
 
-•	To upload a file, you can use `setup.uploadFile`, it will define the uploading files and with `setup.store(<PATH>)`, you can define a storage path of uploading files.
+*	To upload a file, you can use `setup.uploadFile`, it will define the uploading files and with `setup.store(<PATH>)`, you can define a storage path of uploading files.
 
-•	If you want to see the req-body or req-headers which are being passed when calling the url, you can write that in config.json file of config folder.
+*	If you want to see the req-body or req-headers which are being passed when calling the url, you can write that in config.json file of config folder.
 
-•	With `npm start` command, server starts when it is called and using `npm run dev` command, server starts automatically, using `npm run swagger` command, developer can use swagger configuration and setup will provide api documentation automatically.
+*	With `npm start` command, server starts when it is called and using `npm run dev` command, server starts automatically, using `npm run swagger` command, developer can use swagger configuration and setup will provide api documentation automatically.
 
 #	TODOs
-•	We could make more commands for creating functions, services, crons.
+*	We could make more commands for creating functions, services, crons.
 
-•	We can create a command for creating models, seeders and migration files instead of using sequelize command.
+*	We can create a command for creating models, seeders and migration files instead of using sequelize command.
 
-•	We can create global object for importing the model files to controller files.
+*	We can create global object for importing the model files to controller files.
 
-•	We can put json web token configurations by default as it is very useful in most of the websites and also like that, the things which are mostly used in production level, that we should put by default, so that developer can directly use that, no need to do any configurations for that. 
+*	We can put json web token configurations by default as it is very useful in most of the websites and also like that, the things which are mostly used in production level, that we should put by default, so that developer can directly use that, no need to do any configurations for that. 
 
  
  
