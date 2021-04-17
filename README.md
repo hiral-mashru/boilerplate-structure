@@ -81,7 +81,7 @@ Documentation of project : GOTO https://github.com/hiral-mashru/setup/blob/main/
 
 Take a look on functionality of each file and folder.
 
-* ## **api**
+* **api**
 
 api folder will have modules that will be created by developers, and in those modules, there will be controllers, middlewares and services folders and routes.json file.
 
@@ -141,7 +141,7 @@ api folder will have modules that will be created by developers, and in those mo
         root: true | false
   }]
   ```
-* ####	**config**
+* **config**
 
   * config.js
 
