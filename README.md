@@ -89,7 +89,6 @@ api folder will have modules that will be created by developers, and in those mo
 
   In big projects, there may many routes and controllers and middlewares used. So to manage all the actions clearly, we should separate the things in modules. Ex. In E-Commerce website, there are many modules like shipping, payment, admin panel, user profile, products, etc… And each modules will have many routes like in shipping - remainingShipment, completedShipment, In products – addProduct, deleteProduct, editProduct, etc… So to manage all these routes and their actions and HTTP methods, we will separate these fields as a module. 
 
-
   * controllers
 
   controllers folder will have controller files created by developers and the apis will be in object (key-value) format. For handling the error in api, it has `setup.findErr(err)` function, Developer just needs to pass error to that function and it will show the error information.
@@ -100,7 +99,7 @@ api folder will have modules that will be created by developers, and in those mo
     <API_NAME>: () => {};
   }
   ```
-
+  
   *	middlewares
 
   middlewares folder will have middleware files used in apis that are declared in controller files, created by developers and the middleware is also in object (key-value) format.
@@ -172,7 +171,6 @@ api folder will have modules that will be created by developers, and in those mo
   * moduleFunctions.js
 
   It has configuration for calling function files from function folder of given module. Developer just needs to write `setup.moduleFunctions[‘folderName’][‘fileName’][‘functionName’]( params1,params2,…,paramsN)` to call the function. Functions folder can have multiple folders and files.
-
 
   * functions.js
 
