@@ -141,7 +141,7 @@ api folder will have modules that will be created by developers, and in those mo
         root: true | false
   }]
   ```
-* ##	**config**
+* ####	**config**
 
   * config.js
 
