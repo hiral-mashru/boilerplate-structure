@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-structure",
+  "name": "@hiralmashru/setup",
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
@@ -7,6 +7,7 @@
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
@@ -31,10 +32,22 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "swagger": "nodemon ./swagger.js"
+    "start": "apidoc -i ./ -e node_modules -o ./docs && node src/app.js",
+    "dev": "apidoc -i ./ -e node_modules -o ./docs && nodemon src/app.js",
+    "docs": "apidoc -i ./ -e node_modules -o ./docs"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiral-mashru/setup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hira-mashru/setup/issues"
+  },
+  "homepage": "https://github.com/hiral-mashru/setup#readme",
   "author": "Hiral Mashru",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "framework": "cli.js"
+  },
+  "preferGlobal": true
 }

@@ -1,0 +1,10 @@
+{
+    "name": "API-DOCUMENTATION",
+    "version": "0.0.1",
+    "description": "REST API DOCUMENTATION",
+    "title": "API docs",
+    "url" : "http://localhost:8000",
+    "template":{
+        "forceLanguage":"en"
+    }
+}

@@ -27,59 +27,16 @@ require('../core/connection').getSequelize()
       require('../core/moduleServices')
       require('../core/services')
       const chalk = require('chalk')
+      const bodyParser=require('body-parser');
+      const cookieParser=require('cookie-parser');
       const routes = require('../core/routes');
-      ////////////////////////////////////////////////////////////////
+      const path = require('path')
 
-      const swaggerUi = require('swagger-ui-express')
-      const swaggerFile = require('../swagger-output.json');
-      app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
-
-      ////////////////////////////////////////////////////////////////
-      // const swaggerJsDoc = require('swagger-jsdoc')
-      // const swaggerUi = require('swagger-ui-express')
-      // try{
-      // const definition = {
-      //     openapi: '3.0.0',
-      //     info: {
-      //         title: "API",
-      //         description: "API Info",
-      //         contact: {
-      //             name: "Developer"
-      //         },
-      //         servers: ["http://localhost:"+setu.port]
-      //     }
-      // }
-
-      // const options = {
-      //     definition,
-      //     apis: [__dirname+"/../api/apidoc.js"]
-      // } 
-
-      // const swaggerDocs = swaggerJsDoc(options);
-      // app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocs, { explorer: true }))
-      // } catch(err){
-      //     console.log(chalk.red("ERROR:")+err)
-      // }
-      //////////////////////////////////////////////////////////////////////////////////////////
-      const stundetData = [{
-          id: 1,
-          name: 'Hiral'
-      },{
-          id: 2,
-          name: 'harsh'
-      }]
-      app.get('/c', (req, res) => {
-          res.send('Hello World!');
-      });
-      app.get('/users/:id', (req, res) => {
-          /*  #swagger.tags = ['students']
-              #swagger.description = 'Endpoint to get the specific user.' */
-          /* #swagger.responses[200] = { 
-                  schema: { "$ref": "#/definitions/students" },
-                  description: "User found successfully." } */
-          res.send(stundetData.map(x=> Object.values(x)))
-      });
-      ///////////////////////////////////////////////////////////////////////////
+      app.use(bodyParser.json());
+      app.use(bodyParser.urlencoded({extended:true}));
+      app.use(cookieParser())
+      app.use('/docs',require('../core/migrations').express.static(path.join(__dirname,'..','docs')));
+      
       try{
           for(let key in routes.public){    
               app[routes.public[key].method](routes.public[key].path, (routes.public[key].middlewares),routes.public[key].globalMiddleware,routes.public[key].action);

@@ -100,3 +100,4 @@ async function umzgg(umzug){
 
 module.exports.umzg = umzg
 module.exports.umzgg = umzgg
+module.exports.express = express
