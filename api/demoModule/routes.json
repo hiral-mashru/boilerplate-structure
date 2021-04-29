@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "path": "/demo",
+        "method": "get",
+        "action": "demoModule.demoModule", 
+        "middleware": ["demoModule.demoModule"],
+        "globalMiddleware": ["middleware.middleware"],
+        "public": true,
+        "root": false
+    }
+]
