@@ -1,4 +1,8 @@
 setup.moduleServices = {}
+const chalk = require('chalk')
+
+try{
+
 const { readdirSync } = require('fs')
 const fs = require('fs')
 
@@ -19,4 +23,7 @@ for(let key in apis){
     }
 }
 
-// console.log("services", setup.moduleServices)
+} catch(err){
+    console.log(chalk.red('ERROR:')+' Error coming in core/moduleServices.js file. Error is: ',err)
+}
+

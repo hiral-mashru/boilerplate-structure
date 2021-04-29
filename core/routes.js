@@ -2,6 +2,12 @@ const { readdirSync } = require('fs')
 const chalk = require('chalk')
 const fs = require('fs')
 
+var publicRoutes = [];
+var protectedRoutes = [];
+var routes = {};
+
+try{
+
 const getDirectories = source =>
     readdirSync(source, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
@@ -9,9 +15,6 @@ const getDirectories = source =>
 
 const apis = getDirectories(__dirname + '/../api');
 
-var publicRoutes = [];
-var protectedRoutes = [];
-var routes = {};
 
 //for..of takes value, for..in takes key
 for(let key in apis){
@@ -122,7 +125,10 @@ function looping(apii,rr,routes, publicRoutes, protectedRoutes){
     }
 } 
 
-// console.log("rr",path)
+} catch(err){
+    console.log(chalk.red('ERROR:')+' Error coming in core/routes.js file. Error is: ',err)
+}
+
 
 module.exports = {
     public: publicRoutes,

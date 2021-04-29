@@ -1,5 +1,8 @@
-const path = require('path');
 const chalk = require('chalk')
+
+try {
+
+const path = require('path');
 var Umzug = require('umzug');
 const express = require('express')
 const app = express()
@@ -8,7 +11,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 let rootPath = path.resolve(__dirname, '../');
 require('dotenv').config()
-
+const Confirm = require('prompt-confirm')
 
 async function umzg(connection){
   return new Promise((resolve,reject)=>{
@@ -40,12 +43,12 @@ async function umzgg(umzug){
   return new Promise((resolve,reject)=>{
     umzug.pending().then(function (migrations) {
       if(migrations.length>0){
+        console.log("Pending migrations : ")
+        migrations.map(a => console.log(chalk.yellow(a.file)))
         new Confirm('Wanna do migrations?')
         .run()
         .then(function(answer) {
           if(answer){
-              console.log("Pending migrations : ")
-              migrations.map(a => console.log(chalk.yellow(a.file)))
               umzug.up().then(function()  {
                 console.log(chalk.green('Migration complete!'));
                 serverListen();
@@ -101,3 +104,7 @@ async function umzgg(umzug){
 module.exports.umzg = umzg
 module.exports.umzgg = umzgg
 module.exports.express = express
+
+} catch(err){
+  console.log(chalk.red('ERROR:')+' Error coming in core/migrations.js, Error is: ',err)
+}

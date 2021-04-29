@@ -1,3 +1,7 @@
+const chalk = require('chalk')
+
+try{
+
 const fs = require('fs')
 if(!fs.readdirSync(__dirname+'/../crons/')!==[]){
     for (let i of fs.readdirSync(__dirname+'/../crons/')){
@@ -18,6 +22,9 @@ if(modules!==[]){
     }
 }
 
+} catch(err){
+    console.log(chalk.red('ERROR:')+' Error coming in core/crons.js, Error is: ',err)
+}
 // if(config.length>0){
 //     for(let i of config){
 //         var fileName = i.split('.')[0]

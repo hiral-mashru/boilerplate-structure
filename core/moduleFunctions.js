@@ -1,5 +1,8 @@
 setup.moduleFunctions = {}
 const chalk = require('chalk')
+
+try{
+
 const fs = require('fs')
 const path = require('path')
 
@@ -60,4 +63,6 @@ function assign(obj, keyPath, value) {
     obj[keyPath[lastKeyIndex]] = require(value.split('.js')[0]);
 }
 
-console.log("setuppp",setup.moduleFunctions)
+} catch(err){
+    console.log(chalk.red('ERROR:')+' Error coming in core/moduleFunctions.js file. Error is: ',err)
+}

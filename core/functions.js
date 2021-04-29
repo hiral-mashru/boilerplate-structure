@@ -1,5 +1,8 @@
 setup.functions = {}
 const chalk = require('chalk')
+
+try{
+
 const fs = require('fs')
 var root = __dirname + '/../functions'
 
@@ -39,6 +42,10 @@ if(files!==[]){
   console.log(chalk.black.bgYellowBright('WARNING:')+' No function files are available')
 }
 
+} catch(err){
+  console.log(chalk.red('ERROR:')+' Error coming in core/functions.js file. Error is: ',err)
+}
+
 function assign(obj, keyPath, value) {
     var lastKeyIndex = keyPath.length-1;
     for (var i = 0; i < lastKeyIndex; ++ i) {
@@ -53,5 +60,3 @@ function assign(obj, keyPath, value) {
     }
     obj[keyPath[lastKeyIndex]] = require(value.split('.js')[0]);
  }
-
-// console.log("setuppp",setup.functions.funcFile)
