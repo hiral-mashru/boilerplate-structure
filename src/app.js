@@ -33,6 +33,7 @@ require('../core/connection').getSequelize()
       require('../core/moduleFunctions')
       require('../core/moduleServices')
       require('../core/services')
+      require('../core/models')
       const chalk = require('chalk')
       const bodyParser=require('body-parser');
       const cookieParser=require('cookie-parser');
